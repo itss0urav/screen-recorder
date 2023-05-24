@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Screen Recorder</title>
+    <script src="popup.js" type="module"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titleStyle">
+        Screen Recorder By <a href="https://github.com/itss0urav">itss0urav</a>
+      </h1>
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="pauseBtn">Pause</button>
+      </div>
+
+      <div>
+        <label for="qualitySelect" class="qualityText">Quality</label>
+        <select id="qualitySelect">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high" selected>High</option>
+        </select>
+      </div>
+      <span id="timer" class="timerStyle">00:00</span>
+    </div>
+    <div id="errorMessage" class="error-message"></div>
+  </body>
+</html>

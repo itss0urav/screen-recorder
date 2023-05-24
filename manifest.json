@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Screen Recorder",
+  "version": "1.0",
+  "description": "Introducing the Screen Recorder Chrome extension! This extension offers a convenient way to capture your screen effortlessly. Record your screen activities, download the recorded videos, and easily manage your browser tabs. The extension features a user-friendly interface with a timer and intuitive control buttons for seamless recording control. With a visually appealing design, the extension provides a pleasant experience while ensuring smooth functionality. Enjoy effortless screen recording with the Screen Recorder Chrome extension.",
+  "permissions": [
+    "desktopCapture",
+    "downloads",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": ""
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

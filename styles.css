@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+body {
+  font-family: poppins;
+  text-align: center;
+  margin: 20px;
+  background-image: url("./image.jpg");
+}
+
+.qualityText {
+  color: white;
+}
+/* Blurred screen style */
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+}
+.textQuality {
+  color: white;
+  font-weight: 900;
+  font-size: larger;
+}
+
+.titleStyle {
+  color: aqua;
+}
+
+a {
+  color: greenyellow;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+  animation-name: slide-down;
+  animation-duration: 1s;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.controls button:hover {
+  background-color: #ff0000;
+}
+
+.controls button:active {
+  background-color: #3e8941;
+}
+
+#timer {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+#timer-animation {
+  animation-name: slide-right;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+label {
+  margin-right: 5px;
+  font-size: 18px;
+  color: #333;
+  animation-name: slide-right-label;
+  animation-duration: 1s;
+}
+
+@keyframes slide-right-label {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+select {
+  font-size: 16px;
+
+  padding: 8px;
+  border-radius: 4px;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+.option-animation {
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  animation-name: slide-up;
+  animation-duration: 1s;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
