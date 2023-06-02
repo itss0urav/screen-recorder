@@ -6,6 +6,16 @@ body {
   margin: 20px;
   background-image: url("./image.jpg");
 }
+.container {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .qualityText {
   color: white;
