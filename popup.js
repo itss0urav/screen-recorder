@@ -6,26 +6,64 @@ let recordingTime = 0;
 let isPaused = false;
 let pauseTime = 0;
 
-// Blurs the screen
 function blurScreen() {
   const container = document.querySelector(".container");
   container.classList.add("blurred");
 }
 
-// Unblurs the screen
 function unblurScreen() {
   const container = document.querySelector(".container");
   container.classList.remove("blurred");
 }
 
-// Example usage: blurScreen();
-
 function startRecording() {
-  navigator.mediaDevices
-    .getDisplayMedia({ audio: true, video: true })
-    .then(function (stream) {
-      mediaRecorder = new MediaRecorder(stream);
+  const audioSourceSelect = document.getElementById("audioSourceSelect");
+  const audioSource = audioSourceSelect.value;
 
+  let audioStreamPromise;
+  if (audioSource === "microphone") {
+    audioStreamPromise = navigator.mediaDevices.getUserMedia({ audio: true });
+  } else if (audioSource === "file") {
+    const audioFileInput = document.getElementById("audioFileInput");
+    const file = audioFileInput.files[0];
+    const fileReader = new FileReader();
+    audioStreamPromise = new Promise((resolve, reject) => {
+      fileReader.onload = () => {
+        const audioBuffer = fileReader.result;
+        const audioContext = new AudioContext();
+        audioContext.decodeAudioData(audioBuffer, resolve, reject);
+      };
+      fileReader.onerror = reject;
+      fileReader.readAsArrayBuffer(file);
+    });
+  }
+
+  const videoOptions = { video: true };
+  const audioOptions = { audio: true };
+  const mediaStreamPromises = [
+    navigator.mediaDevices.getDisplayMedia(videoOptions),
+  ];
+
+  if (audioSource !== "none") {
+    mediaStreamPromises.push(audioStreamPromise);
+  }
+
+  Promise.all(mediaStreamPromises)
+    .then(function (streams) {
+      const [videoStream, audioStream] = streams;
+      const mixedStream = new MediaStream();
+
+      if (audioStream) {
+        const audioTracks = audioStream.getAudioTracks();
+        audioTracks.forEach((track) => {
+          mixedStream.addTrack(track);
+        });
+      }
+
+      const videoTrack = videoStream.getVideoTracks()[0];
+      mixedStream.addTrack(videoTrack);
+
+      mediaRecorder = new MediaRecorder(mixedStream);
       mediaRecorder.ondataavailable = function (e) {
         chunks.push(e.data);
       };

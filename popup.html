@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Screen Recorder</title>
-    <script src="popup.js" type="module"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script>
-      // JavaScript code to add the "visible" class to the container element
-      window.addEventListener('DOMContentLoaded', function() {
-        var container = document.querySelector('.container');
-        container.classList.add('visible');
-      });
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="titleStyle">
-        Screen Recorder By <a href="https://github.com/itss0urav">Sourav</a>
-      </h1>
-      <div class="controls">
-        <button id="startBtn">Start</button>
-        <button id="stopBtn">Stop</button>
-        <button id="pauseBtn">Pause</button>
-      </div>
 
-      <div>
-        <label for="qualitySelect" class="qualityText">Quality</label>
-        <select id="qualitySelect">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high" selected>High</option>
-        </select>
-      </div>
-      <span id="timer" class="timerStyle">00:00</span>
+<head>
+  <title>Screen Recorder</title>
+  <script src="popup.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="titleStyle">Screen Recorder By <a href="https://github.com/itss0urav">Sourav</a></h1>
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn">Stop</button>
+      <button id="pauseBtn">Pause</button>
     </div>
-    <div id="errorMessage" class="error-message"></div>
-  </body>
+    <div>
+      <label for="qualitySelect" class="qualityText">Quality</label>
+      <select id="qualitySelect">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high" selected>High</option>
+      </select>
+    </div>
+    <div>
+      <label for="audioSourceSelect" class="audioText">Audio Input</label>
+      <select id="audioSourceSelect">
+        <option value="microphone">Microphone</option>
+        <option value="file">Audio File</option>
+      </select>
+    </div>
+    <div>
+      <input type="file" id="audioFileInput" accept="audio/*">
+    </div>
+    <span id="timer" class="timerStyle">00:00</span>
+  </div>
+  <div id="errorMessage" class="error-message"></div>
+</body>
+
 </html>
