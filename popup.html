@@ -5,9 +5,124 @@
   <title>Screen Recorder</title>
   <script src="popup.js"></script>
   <link rel="stylesheet" type="text/css" href="styles.css" />
+  <style>
+    /* CSS for the navbar */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Additional styling for the navbar */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .titleStyle {
+      text-align: center;
+    }
+
+    .controls {
+      text-align: center;
+    }
+
+    .qualityText,
+    .audioText {
+      display: block;
+      text-align: center;
+    }
+
+    .timerStyle {
+      display: block;
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .error-message {
+      color: red;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">About</button>
+      <div class="dropdown-content">
+        <a href="#about-us">About Us</a>
+        <a href="#team">Our Team</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Features</button>
+      <div class="dropdown-content">
+        <a href="features.html">View Features</a>
+        
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <h1 class="titleStyle">Screen Recorder By <a href="https://github.com/itss0urav">Sourav</a></h1>
     <div class="controls">
